@@ -1,0 +1,36 @@
+.movies_componet{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.form_movies{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+.body_muvies{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.p_year{
+    color: #fff;
+}
+.muvies{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.muvie{
+    text-align: center;
+}
+.muvie img{
+    border-radius: 10px;
+}
