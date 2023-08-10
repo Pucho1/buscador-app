@@ -12,3 +12,5 @@ Descripccion
 ---- Se listan las peliculas encontradas y se muetra el título, Año y poster.
 
 ---- Hacer que el listado sea responsive.
+
+---- No repetir busquedas.

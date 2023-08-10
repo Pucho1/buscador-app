@@ -6,10 +6,10 @@ export function HasMuvies(props){
       <ul className="muvies">
         {
           muvies.map((muvi) => (
-            <li className="muvie" key ={muvi.imdbID}>
-              <h3>{muvi.Title}</h3>
-              <p className='p_year'>{muvi.Year}</p>
-              <img src={muvi.Poster}/>
+            <li className="muvie" key ={muvi.id}>
+              <h3>{muvi.title}</h3>
+              <p className='p_year'>{muvi.year}</p>
+              <img src={muvi.poster}/>
             </li>
           ))
         }

@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import './App.css';
 import Movies from './components/Movies';
 import { useSerch } from './hooks/useSerch.js';
@@ -5,16 +6,21 @@ import useMovies from './hooks/useMovies.js';
 
 function App() {
   const { formvalues, setFormvalues, errors } = useSerch();
-  const {responseMuvies, getMuvies, large } = useMovies(formvalues);
+  const {responseMuvies, getMuvies, large, loading, errorResponse } = useMovies(formvalues);
+  const newSerch = useRef();
 
   const handleSubmit = (event) =>{
     event.preventDefault();
-    getMuvies();
+    if (newSerch.current !== formvalues){
+        getMuvies();
+        newSerch.current = formvalues;
+      }
   };
 
   const handleOnChange = (event) =>{
     setFormvalues(event.target.value);
   };
+  const chargedMuvies = !loading ? <Movies muvies={responseMuvies} large={large}/> : 'loading....'
 
   return (
     <div className='movies_componet'>
@@ -27,7 +33,7 @@ function App() {
         </form>
       </header>
       <body className='body_muvies'>
-        <Movies muvies={responseMuvies} large={large}/>
+        {errorResponse || chargedMuvies }
       </body>
     </div>
   )
