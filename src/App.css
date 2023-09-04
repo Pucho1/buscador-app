@@ -13,7 +13,7 @@
     flex-direction: column;
     align-items: center;
 }
-.body_muvies{
+.main_muvies{
     display: flex;
     justify-content: center;
     width: 100%;

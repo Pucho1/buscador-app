@@ -5,7 +5,7 @@ const useServicesMuvies = async (formvalues)  =>{
   if (!formvalues) return null;
 
   try {
-    const response = await fetch(`https://www.omdbapi.com/?apikey=${APY_KEY}&s=${formvalues}`);
+    const response = await fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=${APY_KEY}&s=${formvalues}`);
     const json = await response.json();
     
     return { responseMvs: json.Search?.map((muvi) => ({

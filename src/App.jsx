@@ -32,9 +32,9 @@ function App() {
           <button type='submit' >Buscar</button>
         </form>
       </header>
-      <body className='body_muvies'>
+      <main className='main_muvies'>
         {errorResponse || chargedMuvies }
-      </body>
+      </main>
     </div>
   )
 };
