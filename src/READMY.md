@@ -16,3 +16,5 @@ Descripccion
 ---- No repetir busquedas.
 
 --- Ordenar por año de publicacion.
+
+--- filtrar por todo.

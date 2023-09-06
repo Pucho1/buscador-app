@@ -1,17 +1,18 @@
-import { useState } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import useServicesMuvies from '../servises/useFetchMuvies';
 
-export default function useMovies(formvalues) {
+export default function useMovies(formvalues, sort) {
   const [responseMuvies, setResponseMuvies] = useState([]);
   const [large, setLarge] = useState(0);
   const [loading, setLoading] = useState(false);
   const [errorResponse, setErrorResponse] = useState(null);
 
-  const getMuvies = async () => {
+  const getMuvies = useCallback( async (formvalues) => {
 
     try {
       setLoading(true);
-      const {responseMvs : responseMuvies, responseLarge} = await useServicesMuvies(formvalues);
+      const {responseMvs : responseMuvies, responseLarge} = await useServicesMuvies(formvalues, sort);
+
       setResponseMuvies(responseMuvies),
       setLarge(responseLarge)
     } catch(e) {
@@ -19,6 +20,11 @@ export default function useMovies(formvalues) {
     } finally {
       setLoading(false);
     }
-  }
-  return {responseMuvies, getMuvies, large, loading, errorResponse};
+  }, []);
+
+  const sortResponseMuvies = useMemo(() => {
+    return sort ?  [...responseMuvies].sort((a, b) => a.title.localeCompare(b.title)) : responseMuvies
+  }, [sort, responseMuvies]);
+
+  return {responseMuvies : sortResponseMuvies, getMuvies, large, loading, errorResponse};
 };

@@ -34,3 +34,8 @@
 .muvie img{
     border-radius: 10px;
 }
+.sort{
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
